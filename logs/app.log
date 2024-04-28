@@ -90,3 +90,10 @@
 2024-04-28 09:30:06 - WARNING -  * Debugger is active!
 2024-04-28 09:30:06 - INFO -  * Debugger PIN: 130-209-553
 2024-04-28 09:30:15 - INFO - 127.0.0.1 - - [28/Apr/2024 09:30:15] "GET /tax-calculator?salary=50000&tax_year=2022 HTTP/1.1" 200 -
+2024-04-28 10:42:44 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+2024-04-28 10:42:44 - INFO - [33mPress CTRL+C to quit[0m
+2024-04-28 10:42:44 - INFO -  * Restarting with stat
+2024-04-28 10:42:44 - WARNING -  * Debugger is active!
+2024-04-28 10:42:45 - INFO -  * Debugger PIN: 938-639-587
+2024-04-28 10:42:56 - INFO - 127.0.0.1 - - [28/Apr/2024 10:42:56] "GET /tax-calculator?salary=50&tax_year=2022 HTTP/1.1" 200 -
