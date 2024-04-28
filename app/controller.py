@@ -46,6 +46,9 @@ class TaxCalculatorController:
     async def calculate_taxes(self, salary, tax_year):
         """Calculate taxes owed based on the provided salary and tax year."""
         try:
+            if salary < 0:
+                return jsonify({'error': 'Salary must be greater than zero.'}), 400
+
             if tax_year not in [2019, 2020, 2021, 2022]:
                 return jsonify({'error': 'Invalid tax year. Only years 2019, 2020, 2021, and 2022 are supported.'}), 400
 
@@ -69,7 +72,10 @@ class TaxCalculatorController:
                 total_tax += tax_for_bracket
                 tax_breakdown.append({'min': bracket.min_income, 'max': bracket.max_income, 'tax': tax_for_bracket})
 
-            effective_tax_rate = total_tax / salary * 100
+            if salary == 0:
+                effective_tax_rate = 0
+            else:
+                effective_tax_rate = total_tax / salary * 100
 
             result = {
                 'total_tax': round(total_tax, 2),
@@ -79,7 +85,7 @@ class TaxCalculatorController:
 
             return jsonify(result)
         except Exception as e:
-            # logger.error(f"Error calculating taxes: {str(e)}")
+            logger.error(f"Error calculating taxes: {str(e)}")
             return jsonify({'error': 'An error occurred while calculating taxes.'}), 500
 
 
